@@ -1,6 +1,6 @@
 Summary:	GstRTCP - an RTSP server built on top of GStreamer
 Summary(pl.UTF-8):	GstRTSP - serwer RTSP zbudowany w oparciu o GStreamera
-Name:		gstreamer-rtsp
+Name:		gstreamer0.10-rtsp
 Version:	0.10.8
 Release:	1
 License:	LGPL v2+
@@ -13,17 +13,18 @@ BuildRequires:	automake >= 1:1.10
 BuildRequires:	gettext-devel >= 0.17
 BuildRequires:	glib2-devel >= 1:2.10.0
 BuildRequires:	gobject-introspection-devel >= 0.6.3
-BuildRequires:	gstreamer-devel >= 0.10.29
-BuildRequires:	gstreamer-plugins-base-devel >= 0.10.29
+BuildRequires:	gstreamer0.10-devel >= 0.10.29
+BuildRequires:	gstreamer0.10-plugins-base-devel >= 0.10.29
 BuildRequires:	gtk-doc >= 1.3
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	python >= 2.3
-BuildRequires:	python-gstreamer-devel >= 0.10
+BuildRequires:	python-gstreamer0.10-devel >= 0.10
 BuildRequires:	python-pygobject-devel >= 2.11.2
 Requires:	glib2 >= 1:2.10.0
-Requires:	gstreamer >= 0.10.29
-Requires:	gstreamer-plugins-base >= 0.10.29
+Requires:	gstreamer0.10 >= 0.10.29
+Requires:	gstreamer0.10-plugins-base >= 0.10.29
+Obsoletes:	gstreamer-rtsp < 1.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -38,8 +39,9 @@ Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki GstRTSPserver
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	glib2-devel >= 1:2.10.0
-Requires:	gstreamer-devel >= 0.10.29
-Requires:	gstreamer-plugins-base-devel >= 0.10.29
+Requires:	gstreamer0.10-devel >= 0.10.29
+Requires:	gstreamer0.10-plugins-base-devel >= 0.10.29
+Obsoletes:	gstreamer-rtsp-devel < 1.0
 
 %description devel
 Header files for GstRTSPserver library.
@@ -47,31 +49,33 @@ Header files for GstRTSPserver library.
 %description devel -l pl.UTF-8
 Pliki nagłówkowe biblioteki GstRTSPserver.
 
-%package -n python-gstreamer-rtsp
+%package -n python-gstreamer0.10-rtsp
 Summary:	Python binding for GstRTSPserver library
 Summary(pl.UTF-8):	Pythonowy interfejs do biblioteki GstRTSPserver
 Group:		Libraries/Python
 Requires:	%{name} = %{version}-%{release}
-Requires:	python-gstreamer >= 0.10
+Requires:	python-gstreamer0.10 >= 0.10
 Requires:	python-pygobject >= 2.11.2
+Obsoletes:	python-gstreamer-rtsp < 1.0
 
-%description -n python-gstreamer-rtsp
+%description -n python-gstreamer0.10-rtsp
 Python binding for GstRTSPserver library.
 
-%description -n python-gstreamer-rtsp -l pl.UTF-8
+%description -n python-gstreamer0.10-rtsp -l pl.UTF-8
 Pythonowy interfejs do biblioteki GstRTSPserver.
 
-%package -n vala-gstreamer-rtsp
+%package -n vala-gstreamer0.10-rtsp
 Summary:	Vala binding for GstRTSPserver library API
 Summary(pl.UTF-8):	Wiązanie API biblioteki GstRTSPserver dla języka Vala.
 Group:		Development/Languages
 Requires:	%{name}-devel = %{version}-%{release}
 Requires:	vala >= 0.10
+Obsoletes:	vala-gstreamer-rtsp < 1.0
 
-%description -n vala-gstreamer-rtsp
+%description -n vala-gstreamer0.10-rtsp
 Vala binding for GstRTSPserver library API.
 
-%description -n vala-gstreamer-rtsp -l pl.UTF-8
+%description -n vala-gstreamer0.10-rtsp -l pl.UTF-8
 Wiązanie API biblioteki GstRTSPserver dla języka Vala.
 
 %prep
@@ -122,11 +126,11 @@ rm -rf $RPM_BUILD_ROOT
 # defs for python binding - move to python-gstreamer-rtsp-devel sometime?
 %{_datadir}/gst-rtsp
 
-%files -n python-gstreamer-rtsp
+%files -n python-gstreamer0.10-rtsp
 %defattr(644,root,root,755)
 %attr(755,root,root) %{py_sitedir}/gst-0.10/gst/rtspserver.so
 
-%files -n vala-gstreamer-rtsp
+%files -n vala-gstreamer0.10-rtsp
 %defattr(644,root,root,755)
 %{_datadir}/vala/vapi/gst-rtsp-server-0.10.deps
 %{_datadir}/vala/vapi/gst-rtsp-server-0.10.vapi
