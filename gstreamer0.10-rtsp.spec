@@ -2,7 +2,7 @@ Summary:	GstRTCP - an RTSP server built on top of GStreamer
 Summary(pl.UTF-8):	GstRTSP - serwer RTSP zbudowany w oparciu o GStreamera
 Name:		gstreamer0.10-rtsp
 Version:	0.10.8
-Release:	2
+Release:	3
 License:	LGPL v2+
 Group:		Libraries
 Source0:	http://gstreamer.freedesktop.org/src/gst-rtsp/gst-rtsp-%{version}.tar.bz2
@@ -71,6 +71,9 @@ Group:		Development/Languages
 Requires:	%{name}-devel = %{version}-%{release}
 Requires:	vala >= 0.10
 Obsoletes:	vala-gstreamer-rtsp < 1.0
+%if "%{_rpmversion}" >= "5"
+BuildArch:	noarch
+%endif
 
 %description -n vala-gstreamer0.10-rtsp
 Vala binding for GstRTSPserver library API.
