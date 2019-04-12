@@ -2,7 +2,7 @@ Summary:	GstRTCP - an RTSP server built on top of GStreamer
 Summary(pl.UTF-8):	GstRTSP - serwer RTSP zbudowany w oparciu o GStreamera
 Name:		gstreamer0.10-rtsp
 Version:	0.10.8
-Release:	4
+Release:	5
 License:	LGPL v2+
 Group:		Libraries
 Source0:	http://gstreamer.freedesktop.org/src/gst-rtsp/gst-rtsp-%{version}.tar.bz2
@@ -105,6 +105,8 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 %{__rm} $RPM_BUILD_ROOT%{py_sitedir}/gst-0.10/gst/*.la
+# obsoleted by pkg-config
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/libgst*.la
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -122,7 +124,6 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libgstrtspserver-0.10.so
-%{_libdir}/libgstrtspserver-0.10.la
 %{_includedir}/gstreamer-0.10/gst/rtsp-server
 %{_pkgconfigdir}/gst-rtsp-server-0.10.pc
 %{_datadir}/gir-1.0/GstRtspServer-0.10.gir
