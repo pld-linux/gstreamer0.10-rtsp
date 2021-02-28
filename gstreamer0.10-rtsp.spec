@@ -71,9 +71,7 @@ Group:		Development/Languages
 Requires:	%{name}-devel = %{version}-%{release}
 Requires:	vala >= 0.10
 Obsoletes:	vala-gstreamer-rtsp < 1.0
-%if "%{_rpmversion}" >= "5"
 BuildArch:	noarch
-%endif
 
 %description -n vala-gstreamer0.10-rtsp
 Vala binding for GstRTSPserver library API.
