@@ -5,7 +5,7 @@ Version:	0.10.8
 Release:	5
 License:	LGPL v2+
 Group:		Libraries
-Source0:	http://gstreamer.freedesktop.org/src/gst-rtsp/gst-rtsp-%{version}.tar.bz2
+Source0:	https://gstreamer.freedesktop.org/src/gst-rtsp/gst-rtsp-%{version}.tar.bz2
 # Source0-md5:	b511af07000595f63c3a705946221643
 URL:		http://gstreamer.net/
 BuildRequires:	autoconf >= 2.60
@@ -21,6 +21,7 @@ BuildRequires:	pkgconfig
 BuildRequires:	python >= 2.3
 BuildRequires:	python-gstreamer0.10-devel >= 0.10
 BuildRequires:	python-pygobject-devel >= 2.11.2
+BuildRequires:	rpm-build >= 4.6
 Requires:	glib2 >= 1:2.10.0
 Requires:	gstreamer0.10 >= 0.10.29
 Requires:	gstreamer0.10-plugins-base >= 0.10.29
